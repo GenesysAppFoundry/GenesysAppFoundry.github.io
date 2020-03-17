@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/7504dad015.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./styles/main.css">
+
+  <script src="https://sdk-cdn.mypurecloud.com/javascript/57.0.0/purecloud-platform-client-v2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script type="module" src="scripts/app.js"></script>
+
+  <title>AppFoundry Cherry Picker</title>
+</head>
+<body>
+  <section class="section">
+     <h1 class="title">AppFoundry Onboarding Cherry Picker 🍒</h1>
+  </section>
+  <section style="margin: 10px;">
+      <div class="select is-outlined">
+        <select class="" id="queueList" onchange="refreshEmails();"></select>
+      </div>
+      <a onclick="refreshEmails();" class="button is-primary is-outlined">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+      </a>
+  </section>
+  <section id="email-container">
+      <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+          <thead>
+              <tr>
+                  <th>On Queue</th>
+                  <th>Subject</th>
+                  <th>From</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody id="email-table-body">
+          </tbody>
+      </table>
+  </section>
+  <section id="loader-icon">
+      <div>
+          <i class="fas fa-cog fa-spin"></i>
+          <br>
+          <span id="loader-text">Loading...</span>
+      </div>
+  </section>
+  <section id="no-emails" style="display: none;">
+      <div>The queue is currently empty</div>
+  </section>
+</body>
+</html>
